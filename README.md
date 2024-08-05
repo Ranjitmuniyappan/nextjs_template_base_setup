@@ -1,0 +1,1 @@
+# nextjs_template_base_setup
