@@ -1,0 +1,37 @@
+body{
+
+    &.dark-only {
+
+        color: $dark-all-font-color;
+		background-color: $light-sidebar-bg;
+		--bs-body-color: rgba(255, 255, 255, 0.7);
+		--bs-heading-color: rgba(255, 255, 255, 0.7);
+
+
+        .login_dark {
+			background-color: $dark-card-background;
+			background-blend-mode: overlay;
+
+			.login-main {
+				background-color: $dark-card-inbox;
+			}
+		}
+
+    }
+
+    .for-dark {
+		display: none;
+	}
+
+    &[class*='dark-'] {
+		.for_dark {
+			display: block;
+			// margin: 0 auto;
+		}
+
+		.for_light {
+			display: none;
+		}
+	}
+    
+}
