@@ -1,6 +1,6 @@
 'use client'
 import { useTranslation } from '@/app/i18n/client'
-import { Email, EmailAddress, Password, WelcomeToLogin } from '@/Constant'
+import { Email, EmailAddress, EnterYourEmailAndPasswordToLogin, Password, RememberPassword, SignIn, SignIntoAccount, WelcomeToLogin } from '@/Constant'
 import { useAppSelector } from '@/Redux/Hooks'
 import { ErrorMessage, Field, Form, Formik, useFormik } from 'formik'
 import { useRouter } from 'next/navigation'
@@ -60,8 +60,7 @@ const Login = () => {
     <Container fluid className='m-0 p-0'>
       <Row className='m-0 p-0'>
         <Col xs='12' sm='12' md='12' lg='12' className='p-0 m-0'>
-          <div className="login_card login_dark">
-
+          <div className="login_card login_dark ">
             <div>
               <a className='logo' href='#'>
                 <img className='img_fluid for_light' src={logo_light.src} alt='login page'></img>
@@ -78,14 +77,27 @@ const Login = () => {
                 }}
               >
                 {({ isSubmitting }) => (
-                  <Form className="theme-form">
+                  <Form className="theme_form">
                     {/* <img src={intllogo.src} alt="intelliexams" style={{ width: "200px" }} /> */}
-                    {t(WelcomeToLogin)}
+                    {/* {t(WelcomeToLogin)} */}
+
+                    <h4 className='login_form_title'>{t(SignIntoAccount)}</h4>
+                    <p className='login_form_desc'>{t(EnterYourEmailAndPasswordToLogin)}</p>
 
                     <TextEditor name={'username'} title={EmailAddress} placeholder={Email} placeOfHeading='top' inputType='text' />
                     <TextEditor name={'password'} title={Password} placeholder={Password} placeOfHeading='top' inputType='password' />
 
-                    <Button type='submit' className='secondary'>Login</Button>
+                    <Row className='mb-3'>
+                      <Col xs='12' sm='12' md='12' lg='12' className='text-start d-flex align-item-center'>
+                        <Input type='checkbox' className='me-3'/>
+                        <Label>{t(RememberPassword)}</Label>
+                      </Col>
+                    </Row>
+                    
+
+                    <div className='text-center mb-3'>
+                      <button type='submit' className='btn btn-sm btn-primary signin_btn' >{t(SignIn)}</button>
+                    </div>
                   </Form>
                 )}
               </Formik>

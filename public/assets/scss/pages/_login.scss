@@ -18,6 +18,50 @@
         box-shadow: 0 0 37px rgba(8,21,66,.05);
         background-color: white;
         margin: 0 auto;
+
+        .theme_form{
+
+            label{
+                font-size: 14px;
+            }
+            input{
+                background-color: #f3f3ff;
+                transition: all .3s ease;
+                border: 1px dashed $input_border;
+                color: $font_color;
+
+                font-size: 14px;
+                padding: 12px 10px;
+                
+            }
+            span{
+                font-size: 14px;
+            }
+            .signin_btn{
+                width: 100%;
+            }
+
+            .login_form_title{
+                font-size: 20px;
+            }
+            .login_form_desc{
+                font-size: 14px;
+                color: $font_color;
+            }
+            .btn{
+                border-color: $input_border;
+            }
+            .btn-primary{
+                background-color: $input_border;
+            }
+
+        }
+    }
+
+    @media screen and (max-width:430px) {
+        .login_main{
+            width: 100%;
+        }
     }
 }
 
