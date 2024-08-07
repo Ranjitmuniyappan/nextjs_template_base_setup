@@ -1,6 +1,5 @@
 body{
-
-    &.dark_only {
+    &.light_only {
 
         background-color: $bg_color;
 
@@ -12,14 +11,13 @@ body{
 
     
 
-    &[class*='dark_'] {
+    &[class*='light_'] {
 		.for_dark {
-			display: block;
+			display: none;
 		}
 
 		.for_light {
-			display: none;
+			display: block;
 		}
 	}
-    
 }
