@@ -20,7 +20,7 @@ const TopHeader: React.FC<TextEditorProps> = ({ name, inputType, title, placehol
         <Row>
             <Col xs='12' sm='12' md='12' lg='12'>
                 <Label>{title}</Label>
-                <Input name={name} placeholder={placeholder} defaultValue={values} disabled={readonly} type={inputType}/>
+                <Input bsSize='lg' name={name} placeholder={placeholder} defaultValue={values} disabled={readonly} type={inputType}/>
                 <ErrorMessage className='text-danger' name={name} component={'span'} />
             </Col>
         </Row>
@@ -34,7 +34,7 @@ const LeftHeader: React.FC<TextEditorProps> = ({ name, title, placeholder, reado
                 <Label>{title} :</Label>
             </Col>
             <Col xs='8' sm='8' md='8' lg='8'>
-                <Input name={name} placeholder={placeholder} defaultValue={values} disabled={readonly} type={inputType}/>
+                <Input bsSize='lg' name={name} placeholder={placeholder} defaultValue={values} disabled={readonly} type={inputType}/>
                 <ErrorMessage name={name} component={'span'} />
             </Col>
         </Row>
