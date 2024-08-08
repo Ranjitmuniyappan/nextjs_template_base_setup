@@ -10,7 +10,8 @@ import { Button, Card, CardBody, Col, Container, FormGroup, Input, Label, Row } 
 import logo_light from '../../../../public/assets/images/logo/logo.png'
 import logo_dark from '../../../../public/assets/images/logo/logo_dark.png'
 import * as Yup from 'yup';
-import { TextEditor } from '@/app/CommonComponents/TextEditor/page'
+import { TextEditor } from '@/app/CommonComponents/TextEditor'
+import FormikWrapper from '@/app/CommonComponents/FormikWrapper'
 
 
 const Login = () => {
@@ -57,50 +58,120 @@ const Login = () => {
 
 
   return (
+    // <Container fluid className='m-0 p-0'>
+    //   <Row className='m-0 p-0'>
+    //     <Col xs='12' sm='12' md='12' lg='12' className='p-0 m-0'>
+    //       <div className="login_card login_dark ">
+    //         <div>
+    //           <a className='logo' href='#'>
+    //             <img className='img_fluid for_light' src={logo_light.src} alt='login page'></img>
+    //             <img className='img_fluid for_dark' src={logo_dark.src} alt='login page'></img>
+    //           </a>
+    //         </div>
+
+    //         <div className="login_main">
+
+
+
+    //           <Formik
+    //             initialValues={{ username: '', password: '' }}
+    //             validationSchema={validationSchema}
+    //             onSubmit={(values) => {
+    //               handleOnSubmit(values)
+    //             }}
+    //           >
+    //             {({ isSubmitting }) => (
+    //               <Form className="theme_form">
+    //                 {/* <img src={intllogo.src} alt="intelliexams" style={{ width: "200px" }} /> */}
+    //                 {/* {t(WelcomeToLogin)} */}
+
+    //                 <h4 className='login_form_title'>{t(SignIntoAccount)}</h4>
+    //                 <p className='login_form_desc'>{t(EnterYourEmailAndPasswordToLogin)}</p>
+
+    //                 <TextEditor name={'username'} title={EmailAddress} placeholder={Email} placeOfHeading='top' inputType='text' />
+    //                 <TextEditor name={'password'} title={Password} placeholder={Password} placeOfHeading='top' inputType='password' />
+
+    //                 <Row className='mb-3'>
+    //                   <Col xs='12' sm='12' md='12' lg='12' className='text-start d-flex align-item-center'>
+    //                     <Input type='checkbox' className='me-3 custom-checkbox'/>
+    //                     <Label>{t(RememberPassword)}</Label>
+    //                   </Col>
+    //                 </Row>
+
+
+    //                 <div className='text-center mb-3'>
+    //                   <button type='submit' className='btn btn-sm btn-primary signin_btn' >{t(SignIn)}</button>
+    //                 </div>
+    //               </Form>
+    //             )}
+    //           </Formik>
+    //         </div>
+    //       </div>
+    //     </Col>
+    //   </Row>
+    // </Container>
+
     <Container fluid className='m-0 p-0'>
       <Row className='m-0 p-0'>
         <Col xs='12' sm='12' md='12' lg='12' className='p-0 m-0'>
           <div className="login_card login_dark ">
             <div>
               <a className='logo' href='#'>
-                <img className='img_fluid for_light' src={logo_light.src} alt='login page'></img>
-                <img className='img_fluid for_dark' src={logo_dark.src} alt='login page'></img>
+                <img className='img_fluid for_light' src={logo_light.src} alt='login page' />
+                <img className='img_fluid for_dark' src={logo_dark.src} alt='login page' />
               </a>
             </div>
 
             <div className="login_main">
-              <Formik
-                initialValues={{ username: '', password: '' }}
-                validationSchema={validationSchema}
-                onSubmit={(values) => {
-                  handleOnSubmit(values)
+              <FormikWrapper initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleOnSubmit}>
+                {({ handleChange, handleSubmit, values, errors, touched }: any) => {
+
+                  console.log("CurrentValues : ", values);
+
+
+                  return (
+                    <Form className="theme_form" onSubmit={handleSubmit}>
+                      <h4 className='login_form_title'>{t('SignIntoAccount')}</h4>
+                      <p className='login_form_desc'>{t('EnterYourEmailAndPasswordToLogin')}</p>
+
+                      <TextEditor
+                        name='username'
+                        title={t('EmailAddress')}
+                        placeholder={t('Email')}
+                        placeOfHeading='top'
+                        inputType='text'
+                        handleChange={handleChange}
+                      />
+                      <TextEditor
+                        name='password'
+                        title={t('Password')}
+                        placeholder={t('Password')}
+                        placeOfHeading='top'
+                        inputType='password'
+                        handleChange={handleChange}
+                      />
+
+                      {/* <select name='country' onChange={handleChange} value={values.country}>
+                      <option value="" label='Select a country' />
+                      <option value="USA" label='America' />
+                      <option value="IND" label='India' />
+                      <option value="CND" label='Canada' />
+                    </select> */}
+
+                      <Row className='mb-3'>
+                        <Col xs='12' sm='12' md='12' lg='12' className='text-start d-flex align-items-center'>
+                          <Input type='checkbox' className='me-3' />
+                          <Label>{t('RememberPassword')}</Label>
+                        </Col>
+                      </Row>
+
+                      <div className='text-center mb-3'>
+                        <button type='submit' className='btn btn-sm btn-primary signin_btn'>{t('SignIn')}</button>
+                      </div>
+                    </Form>
+                  )
                 }}
-              >
-                {({ isSubmitting }) => (
-                  <Form className="theme_form">
-                    {/* <img src={intllogo.src} alt="intelliexams" style={{ width: "200px" }} /> */}
-                    {/* {t(WelcomeToLogin)} */}
-
-                    <h4 className='login_form_title'>{t(SignIntoAccount)}</h4>
-                    <p className='login_form_desc'>{t(EnterYourEmailAndPasswordToLogin)}</p>
-
-                    <TextEditor name={'username'} title={EmailAddress} placeholder={Email} placeOfHeading='top' inputType='text' />
-                    <TextEditor name={'password'} title={Password} placeholder={Password} placeOfHeading='top' inputType='password' />
-
-                    <Row className='mb-3'>
-                      <Col xs='12' sm='12' md='12' lg='12' className='text-start d-flex align-item-center'>
-                        <Input type='checkbox' className='me-3'/>
-                        <Label>{t(RememberPassword)}</Label>
-                      </Col>
-                    </Row>
-                    
-
-                    <div className='text-center mb-3'>
-                      <button type='submit' className='btn btn-sm btn-primary signin_btn' >{t(SignIn)}</button>
-                    </div>
-                  </Form>
-                )}
-              </Formik>
+              </FormikWrapper>
             </div>
           </div>
         </Col>
