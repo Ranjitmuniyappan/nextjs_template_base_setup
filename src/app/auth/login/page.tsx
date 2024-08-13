@@ -43,7 +43,7 @@ const Login = () => {
 
     console.log("isFormSubmitted ?");
 
-    router.push(`/hi/dashboard`)
+    router.push(`/${i18LangStatus}/dashboard`)
 
   }
   const formik = useFormik({
