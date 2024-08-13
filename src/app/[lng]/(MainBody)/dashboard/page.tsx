@@ -9,7 +9,7 @@ const Dashboard = () => {
   const { i18LangStatus } = useAppSelector((store) => store.langSlice);
   const {t, ready} = useTranslation(i18LangStatus)
 
-  console.log("isItReady ? ", ready);
+  // console.log("isItReady ? ", ready);
   
   
   

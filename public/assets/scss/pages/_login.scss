@@ -1,5 +1,4 @@
-
-.login_card{
+.login_card {
 
     min-height: 100vh;
     display: flex;
@@ -11,20 +10,21 @@
     background-position: 50%;
     padding: 30px 12px;
 
-    .login_main{
+    .login_main {
         width: 450px;
         padding: 40px;
         border-radius: 10px;
-        box-shadow: 0 0 37px rgba(8,21,66,.05);
+        box-shadow: 0 0 37px rgba(8, 21, 66, .05);
         background-color: white;
         margin: 0 auto;
 
-        .theme_form{
+        .theme_form {
 
-            label{
+            label {
                 font-size: 14px;
             }
-            input{
+
+            input {
                 background-color: #f3f3ff;
                 transition: all .3s ease;
                 border: 1px dashed $input_border;
@@ -32,37 +32,41 @@
 
                 font-size: 14px;
                 padding: 12px 10px;
-                
+
             }
-            span{
+
+            span {
                 font-size: 14px;
             }
-            .signin_btn{
+
+            .signin_btn {
                 width: 100%;
             }
 
-            .login_form_title{
+            .login_form_title {
                 font-size: 20px;
             }
-            .login_form_desc{
+
+            .login_form_desc {
                 font-size: 14px;
                 color: $font_color;
             }
-            .btn{
+
+            .btn {
                 border-color: $input_border;
             }
-            .btn-primary{
+
+            .btn-primary {
                 background-color: $input_border;
             }
+
 
         }
     }
 
     @media screen and (max-width:430px) {
-        .login_main{
+        .login_main {
             width: 100%;
         }
     }
 }
-
-
